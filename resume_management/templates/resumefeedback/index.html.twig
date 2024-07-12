@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resume Feedback{% endblock %}
+
+{% block body %}
+    <h1>Resume Feedback</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Resume</th>
+                <th>Company</th>
+                <th>Feedback Type</th>
+                <th>Sent At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedbacks %}
+                <tr>
+                    <td>{{ feedback.id }}</td>
+                    <td>{{ feedback.resume.position }}</td>
+                    <td>{{ feedback.company.name }}</td>
+                    <td>{{ feedback.feedbackType }}</td>
+                    <td>{{ feedback.sentAt|date('Y-m-d H:i:s') }}</td>
+                    <td>
+                        <a href="{{ path('resume_feedback_show', {id: feedback.id}) }}">Show</a>
+                        <a href="{{ path('resume_feedback_edit', {id: feedback.id}) }}">Edit</a>
+                        <form method="post" action="{{ path('resume_feedback_delete', {id: feedback.id}) }}" style="display:inline-block;">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

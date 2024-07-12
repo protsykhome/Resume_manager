@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resume Details{% endblock %}
+
+{% block body %}
+    <h1>Resume Details</h1>
+    <p>Position: {{ resume.position }}</p>
+    <p>Content: {{ resume.content ?: 'N/A' }}</p>
+    <p>File Path: {{ resume.filePath ?: 'N/A' }}</p>
+    <p>Created: {{ resume.createdAt ? resume.createdAt|date('Y-m-d H:i:s') : 'N/A' }}</p>
+    <p>Updated: {{ resume.updatedAt ? resume.updatedAt|date('Y-m-d H:i:s') : 'N/A' }}</p>
+    <a href="{{ path('resume_list') }}">Back to List</a>
+{% endblock %}

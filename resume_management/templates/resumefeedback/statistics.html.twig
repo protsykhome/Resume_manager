@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Статистика Апрувів{% endblock %}
+
+{% block body %}
+    <h1>Статистика Апрувів</h1>
+
+    <form method="get">
+        <div class="form-group">
+            <label for="resume">Виберіть Резюме:</label>
+            <select id="resume" name="resume_id" class="form-control" onchange="this.form.submit()">
+                <option value="">-- Виберіть резюме --</option>
+                {% for resume in resumes %}
+                    <option value="{{ resume.id }}" {% if resume.id == selectedResumeId %}selected{% endif %}>
+                        {{ resume.id }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+    </form>
+
+    {% if selectedResumeId %}
+        <h3>Кількість Апрувів для резюме ID {{ selectedResumeId }}: {{ approvalCount }}</h3>
+    {% endif %}
+{% endblock %}

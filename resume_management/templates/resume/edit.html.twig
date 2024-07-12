@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Resume{% endblock %}
+
+{% block body %}
+    <h1>Edit Resume</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.position) }}
+        {{ form_row(form.content) }}
+        {{ form_row(form.file_path) }}
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('resume_list') }}">Back to list</a>
+{% endblock %}

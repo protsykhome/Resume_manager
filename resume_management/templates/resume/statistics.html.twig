@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resume Statistics{{ parent() }}{% endblock %}
+
+{% block body %}
+    <h1>Resume Statistics</h1>
+
+    <p>Total Resumes: {{ totalResumes }}</p>
+
+    <h2>Resumes Per Position:</h2>
+    <ul>
+        {% for position, count in resumesPerPosition %}
+            <li>{{ position }}: {{ count }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

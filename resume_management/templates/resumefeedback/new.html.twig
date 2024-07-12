@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create new Resume Feedback{% endblock %}
+
+{% block body %}
+    <h1>Create new Resume Feedback for {{ resume.position }}</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('resume_feedback_list', {id: resume.id}) }}">back to list</a>
+{% endblock %}

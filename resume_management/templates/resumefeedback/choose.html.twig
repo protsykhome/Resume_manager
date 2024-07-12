@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Choose Resume for Approval{% endblock %}
+
+{% block body %}
+    <h1>Choose Resume for Approval</h1>
+
+    {{ form_start(form) }}
+        <div class="form-group">
+            <label for="resume_id">Resume</label>
+            <select id="resume_id" name="resume_id" class="form-control">
+                {% for resume in resumes %}
+                    <option value="{{ resume.id }}">{{ resume.position }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="company_id">Company</label>
+            <select id="company_id" name="company_id" class="form-control">
+                {% for company in companies %}
+                    <option value="{{ company.id }}">{{ company.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        {{ form_widget(form) }}
+
+        <button type="submit" class="btn btn-primary">Approve</button>
+    {{ form_end(form) }}
+{% endblock %}

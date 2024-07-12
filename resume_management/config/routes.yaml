@@ -1,0 +1,92 @@
+index:
+  path: /
+  controller: App\Controller\DefaultController::index
+
+resume_list:
+  path: /resumes
+  controller: App\Controller\ResumeController::index
+
+resume_new:
+  path: /resume/new
+  controller: App\Controller\ResumeController::new
+  methods: [GET, POST]
+
+resume_show:
+  path: /resume/{id}
+  controller: App\Controller\ResumeController::show
+  methods: [GET]
+
+resume_edit:
+  path: /resume/{id}/edit
+  controller: App\Controller\ResumeController::edit
+  methods: [GET, POST]
+
+resume_delete:
+  path: /resume/{id}
+  controller: App\Controller\ResumeController::delete
+  methods: [DELETE, POST]
+
+resume_statistics:
+  path: /resume/statistics
+  controller: App\Controller\ResumeController::showStatistics
+  methods: [GET]
+
+resume_feedback_new:
+  path: /resume/{id}/feedback/new
+  controller: App\Controller\ResumeFeedbackController::new
+  methods: [GET, POST]
+
+resume_feedback_choose:
+  path: /resume/feedback/choose
+  controller: App\Controller\ResumeFeedbackController::choose
+  methods: [GET, POST]
+
+resume_feedback_list:
+  path: /feedbacks
+  controller: App\Controller\ResumeFeedbackController::index
+  methods: [GET]
+
+resume_feedback_show:
+  path: /resume/feedback/{id}
+  controller: App\Controller\ResumeFeedbackController::show
+  methods: [GET]
+
+feedbacks_statistics:
+  path: /statistics
+  controller: App\Controller\ResumeFeedbackController::statistics
+  methods: [GET]
+
+resume_feedback_edit:
+  path: /resume/feedback/{id}/edit
+  controller: App\Controller\ResumeFeedbackController::edit
+  methods: [GET, POST]
+
+resume_feedback_delete:
+  path: /resume/feedback/{id}
+  controller: App\Controller\ResumeFeedbackController::delete
+  methods: [DELETE, POST]
+
+company_list:
+  path: /companies
+  controller: App\Controller\CompanyController::index
+  methods: [GET]
+
+company_new:
+  path: /company/new
+  controller: App\Controller\CompanyController::new
+  methods: [GET, POST]
+
+company_show:
+  path: /company/{id}
+  controller: App\Controller\CompanyController::show
+  methods: [GET]
+
+company_edit:
+  path: /company/{id}/edit
+  controller: App\Controller\CompanyController::edit
+  methods: [GET, POST]
+
+company_delete:
+  path: /company/{id}
+  controller: App\Controller\CompanyController::delete
+  methods: [DELETE, POST]

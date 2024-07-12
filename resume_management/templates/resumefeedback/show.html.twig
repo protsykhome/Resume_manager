@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resume Feedback{% endblock %}
+
+{% block body %}
+    <h1>Resume Feedback</h1>
+
+    <table>
+        <tr>
+            <th>Resume</th>
+            <td>{{ feedback.resume.position }}</td>
+        </tr>
+        <tr>
+            <th>Company</th>
+            <td>{{ feedback.company.name }}</td>
+        </tr>
+        <tr>
+            <th>Feedback Type</th>
+            <td>{{ feedback.feedbackType }}</td>
+        </tr>
+        <tr>
+            <th>Sent At</th>
+            <td>{{ feedback.sentAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+    </table>
+
+    <a href="{{ path('resume_feedback_edit', {id: feedback.id}) }}">edit</a>
+    <form method="post" action="{{ path('resume_feedback_delete', {id: feedback.id}) }}" style="display:inline-block;">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ feedback.id) }}">
+        <button class="btn btn-danger">delete</button>
+    </form>
+    <a href="{{ path('resume_feedback_list') }}">back to list</a>
+{% endblock %}
